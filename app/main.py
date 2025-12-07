@@ -8,7 +8,6 @@ import tempfile
 import io
 import base64
 
-from app.asr import WhisperASR
 from app.audio_classifier import AudioSceneAnalyzer
 from app.embedder import TextEmbedder
 from app.vector_store import FAISSVectorStore
