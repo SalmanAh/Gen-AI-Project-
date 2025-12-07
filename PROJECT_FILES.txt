@@ -1,0 +1,64 @@
+SOUND2SCENE PROJECT - FINAL FILE STRUCTURE
+==========================================
+
+Team: Salman Ahmed (22I-0743), Haider Bukhari (22I-0980), Hamza Arshad (22I-1126)
+Date: December 7, 2025
+
+CORE FILES (Essential Code)
+----------------------------
+✅ app/main.py              - FastAPI server with all endpoints
+✅ app/audio_classifier.py  - CLAP audio analysis (180+ scenes)
+✅ app/image_generator.py   - Stable Diffusion XL image generation
+✅ app/embedder.py          - MPNet text embeddings
+✅ app/vector_store.py      - FAISS vector storage
+✅ app/__init__.py          - Package initialization
+
+CONFIGURATION FILES
+-------------------
+✅ requirements.txt         - Python dependencies
+✅ .gitignore              - Git ignore rules
+✅ Dockerfile              - Docker container setup
+✅ docker-compose.yml      - Docker compose configuration
+✅ start_server.bat        - Windows server startup script
+
+DOCUMENTATION FILES
+-------------------
+✅ README.md               - Project overview and usage
+✅ RESEARCH_PAPER.md       - Complete research paper
+✅ GPT_PROMPTS.txt         - AI prompts used
+
+DATA DIRECTORIES
+----------------
+✅ data/uploads/           - Input audio files
+✅ data/generated/         - Output generated images
+✅ tests/audio/            - Test audio samples
+
+REMOVED FILES (Cleanup)
+-----------------------
+❌ app/asr.py              - Unused Whisper model
+❌ app/test_pipeline.py    - Test file
+❌ All extra .md files     - Redundant documentation
+❌ All test_*.py files     - Unused test scripts
+❌ setup.py                - Unused setup
+❌ monitor_performance.py  - Unused utility
+❌ example_usage.py        - Unused example
+❌ fix_ffmpeg.py           - Unused utility
+❌ verify_installation.py  - Unused utility
+
+TOTAL ESSENTIAL FILES: 17 files
+TOTAL LINES OF CODE: ~1,500 lines (clean, commented)
+
+GITHUB REPOSITORY
+-----------------
+URL: https://github.com/SalmanAh/Gen-AI-Project-.git
+Commits: 3 commits
+Status: Clean, production-ready code
+
+SUBMISSION READY
+----------------
+✅ All code files present
+✅ Proper comments and structure
+✅ Research paper complete
+✅ GPT prompts documented
+✅ GitHub repository public
+✅ No unused/redundant files
