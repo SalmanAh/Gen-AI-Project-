@@ -1,0 +1,231 @@
+GPT PROMPTS USED FOR SOUND2SCENE PROJECT
+Team: Salman Ahmed (22I-0743), Haider Bukhari (22I-0980), Hamza Arshad (22I-1126)
+Course: Generative AI - Dr. Akhtar Jamil
+Date: December 7, 2025
+
+Note: These prompts were used for research assistance, debugging, and optimization.
+The core implementation, architecture design, and model integration were done by the team.
+
+================================================================================
+PROMPT 1: Research on Audio Understanding Models
+================================================================================
+
+"What are the current state-of-the-art models for environmental audio classification?
+Compare CLAP, AudioCLIP, and PANNs in terms of:
+- Zero-shot capability
+- Model size and inference speed
+- Accuracy on AudioSet
+- Integration with diffusion models"
+
+Purpose: Literature review for selecting the best audio encoder for our pipeline.
+
+================================================================================
+PROMPT 2: CLAP Model Architecture Details
+================================================================================
+
+"Explain the architecture of CLAP (Contrastive Language-Audio Pretraining):
+- How does the contrastive loss work?
+- What is the embedding dimension?
+- How to use it for zero-shot classification?
+- Best practices for audio preprocessing (sample rate, channels)"
+
+Purpose: Understanding CLAP internals for proper implementation.
+
+================================================================================
+PROMPT 3: Stable Diffusion Model Selection
+================================================================================
+
+"Compare Stable Diffusion models for photorealistic scene generation:
+- SD 1.5 vs SD 2.1 vs SDXL
+- Memory requirements for 8GB GPU
+- Inference speed and quality trade-offs
+- Which scheduler is fastest (DPM-Solver++ vs DDIM vs Euler)?
+Recommend best model for our audio-to-image use case."
+
+Purpose: Selecting optimal image generation model within hardware constraints.
+
+================================================================================
+PROMPT 4: Memory Optimization Techniques
+================================================================================
+
+"How to optimize Stable Diffusion XL for 8GB GPU?
+Need techniques for:
+- Model loading (FP16, CPU offloading)
+- VAE optimization (slicing, tiling)
+- Batch processing strategies
+- Memory cleanup between generations
+Provide code examples for PyTorch and Diffusers library."
+
+Purpose: Implementing memory-efficient inference for consumer hardware.
+
+================================================================================
+PROMPT 5: Audio Scene Taxonomy Development
+================================================================================
+
+"Help create a comprehensive taxonomy of environmental sounds for audio-to-image generation.
+Categories needed:
+- Nature (animals, weather, water)
+- Urban (traffic, construction, crowds)
+- Indoor (household, office, appliances)
+- Emergency (alarms, sirens)
+Format each as a detailed scene description suitable for Stable Diffusion prompts."
+
+Purpose: Designing the 180+ scene category system for classification.
+
+================================================================================
+PROMPT 6: FastAPI Architecture Design
+================================================================================
+
+"Design a RESTful API architecture for multi-modal AI pipeline:
+- Separate endpoints for audio analysis, image generation, and combined pipeline
+- Model loading strategy (startup vs on-demand)
+- Error handling and validation
+- Response format with base64 image encoding
+- Async processing for long-running tasks
+Provide best practices for production deployment."
+
+Purpose: Designing scalable API architecture for the system.
+
+================================================================================
+PROMPT 7: Evaluation Metrics Research
+================================================================================
+
+"What evaluation metrics are used in audio-to-image generation research papers?
+Explain:
+- CLIPScore: How to compute semantic alignment between audio description and image
+- FID (Fréchet Inception Distance): Implementation for image quality
+- LPIPS: Perceptual similarity measurement
+- MOS (Mean Opinion Score): Human evaluation protocol
+Provide implementation guidance for each metric."
+
+Purpose: Planning evaluation framework for research paper.
+
+================================================================================
+PROMPT 8: Debugging Audio Loading Issues
+================================================================================
+
+"Getting error: 'TorchCodec is required for load_with_torchcodec'
+Context: Loading MP3 files with torchaudio for CLAP model
+Alternatives:
+- soundfile library (supports WAV, FLAC, OGG)
+- pydub with FFmpeg backend
+- librosa (but has Python 3.14 compatibility issues)
+Which is most reliable for production? Provide code for audio resampling to 48kHz."
+
+Purpose: Solving audio loading compatibility issues across formats.
+
+================================================================================
+PROMPT 9: Prompt Engineering for Image Quality
+================================================================================
+
+"How to enhance text prompts for Stable Diffusion to generate photorealistic scenes?
+Given audio scene: 'birds chirping'
+Need to expand to detailed prompt with:
+- Scene composition (forest, trees, lighting)
+- Quality modifiers (photorealistic, 8k, detailed)
+- Negative prompts (what to avoid)
+- Style consistency across different audio categories
+Provide template and examples."
+
+Purpose: Optimizing prompt generation for consistent high-quality images.
+
+================================================================================
+PROMPT 10: Research Paper Structure
+================================================================================
+
+"Review our Sound2Scene research paper structure:
+- Abstract: Clear problem statement and contributions
+- Methodology: Technical depth on CLAP + SDXL integration
+- Results: Quantitative metrics and qualitative analysis
+- Discussion: Limitations and comparison with baselines
+Suggest improvements for academic rigor and clarity."
+
+Purpose: Ensuring research paper meets academic standards.
+
+================================================================================
+TECHNICAL IMPLEMENTATION NOTES
+================================================================================
+
+The following aspects were implemented by the team with AI assistance for research:
+
+1. **System Architecture**: Designed modular pipeline with separate components for
+   audio analysis, scene classification, and image generation.
+
+2. **Model Integration**: Integrated CLAP and SDXL models with custom preprocessing
+   and postprocessing pipelines.
+
+3. **Scene Taxonomy**: Developed comprehensive 180+ category system organized by
+   domain (nature, urban, indoor, etc.) with detailed scene descriptions.
+
+4. **Memory Optimization**: Implemented FP16 precision, CPU offloading, VAE slicing
+   to run SDXL on 8GB GPU.
+
+5. **API Design**: Created RESTful endpoints with proper error handling, validation,
+   and response formatting.
+
+6. **Audio Processing**: Handled multiple formats (MP3, WAV, FLAC) with fallback
+   strategies for compatibility.
+
+7. **Prompt Enhancement**: Developed system to convert audio labels into detailed
+   scene descriptions optimized for image generation.
+
+8. **Vector Storage**: Integrated FAISS for semantic search and scene retrieval.
+
+================================================================================
+PROMPT ENGINEERING TECHNIQUES DEMONSTRATED
+================================================================================
+
+1. **Research-Oriented Queries**: Asked for comparisons, trade-offs, and best practices
+   rather than direct implementation.
+
+2. **Constraint Specification**: Clearly defined hardware limits (8GB GPU), performance
+   requirements (30-40s generation), and quality targets (photorealistic).
+
+3. **Iterative Refinement**: Started with broad questions, then drilled down into
+   specific technical details based on implementation needs.
+
+4. **Problem Decomposition**: Broke complex audio-to-image pipeline into manageable
+   components (audio loading, classification, prompt generation, image synthesis).
+
+5. **Error-Driven Learning**: Used debugging prompts to understand root causes and
+   explore alternative solutions.
+
+6. **Comparative Analysis**: Asked for model comparisons to make informed decisions
+   (CLAP vs AudioCLIP, SDXL vs SD 2.1).
+
+7. **Academic Rigor**: Researched evaluation metrics, related work, and proper
+   citation practices for research paper.
+
+================================================================================
+LEARNING OUTCOMES
+================================================================================
+
+Through this project and AI-assisted research, the team gained expertise in:
+
+- Multimodal AI systems (audio + vision)
+- Zero-shot learning with contrastive models
+- Diffusion model optimization and deployment
+- Production API design with FastAPI
+- Memory-efficient deep learning on consumer hardware
+- Research methodology and academic writing
+- Prompt engineering for technical problem-solving
+
+================================================================================
+SUMMARY
+================================================================================
+
+This project demonstrates effective use of AI assistance for:
+- Research and literature review
+- Technical problem-solving and debugging
+- Optimization and best practices
+- Academic writing and documentation
+
+The core implementation, architecture decisions, and model integration were performed
+by the team with AI serving as a research assistant and technical advisor.
+
+Total Research Prompts: 10 major queries
+Focus Areas: Model selection, optimization, evaluation, debugging, documentation
+
+================================================================================
+END OF PROMPTS FILE
+================================================================================
